@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 400px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { text-align: center; font-weight: bold; color: red; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Name">
+       
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" placeholder="Enter Mobile Number">
+       
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter Email Address">
+       
+        <button type="submit">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    // Function to validate the form
+    function validateForm() {
+        const name = document.getElementById('name').value;
+        const mobile = document.getElementById('mobile').value;
+        const email = document.getElementById('email').value;
+        const resultDiv = document.getElementById('result');
+
+        // Validate Name: starts with a letter, alphanumeric, and length >= 6
+        const namePattern = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+        if (!namePattern.test(name)) {
+            resultDiv.innerText = "Name must start with an alphabet, followed by alphanumeric characters, and at least 6 characters long.";
+            return false;
+        }
+
+        // Validate Mobile: only numbers and exactly 10 digits
+        const mobilePattern = /^\d{10}$/;
+        if (!mobilePattern.test(mobile)) {
+            resultDiv.innerText = "Mobile number must be exactly 10 digits.";
+            return false;
+        }
+
+        // Validate Email: must follow the pattern xxxxxxx@xxxxxx.xxx
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            resultDiv.innerText = "Please enter a valid email address (example: xxxxxxx@xxxxxx.xxx).";
+            return false;
+        }
+
+        // If all validations pass
+        resultDiv.innerText = "Registration Successful!";
+        resultDiv.style.color = "green";
+        return true;
+    }
+</script>
+
+</body>
+</html>

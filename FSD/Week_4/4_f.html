@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Denomination Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 400px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Bank Denomination Calculator</h2>
+    <input type="number" id="amount" placeholder="Enter deposited amount">
+    <button onclick="calculateDenominations()">Calculate Denominations</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function calculateDenominations() {
+        const amount = +document.getElementById('amount').value;
+        let remainingAmount = amount;
+        let result = '';
+
+        const denominations = [100, 50, 20, 10, 5, 2, 1];
+       
+        denominations.forEach(denom => {
+            if (remainingAmount >= denom) {
+                let count = Math.floor(remainingAmount / denom);
+                result += `${count} - ${denom}'s, `;
+                remainingAmount -= count * denom;
+            }
+        });
+       
+        document.getElementById('result').innerText = result.slice(0, -2) || 'No denomination for the given amount.';
+    }
+</script>
+
+</body>
+</html>

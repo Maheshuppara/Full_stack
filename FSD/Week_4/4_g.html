@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Functions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 400px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .result { text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Number Functions</h2>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="calculateFactorial()">Factorial</button>
+    <button onclick="calculateFibonacci()">Fibonacci</button>
+    <button onclick="calculatePrime()">Prime Numbers</button>
+    <button onclick="checkPalindrome()">Palindrome</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    // Factorial function
+    function calculateFactorial() {
+        const num = document.getElementById('num').value;
+        let factorial = 1;
+        for (let i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        document.getElementById('result').innerText = `Factorial of ${num} is ${factorial}`;
+    }
+
+    // Fibonacci function
+    function calculateFibonacci() {
+        const num = document.getElementById('num').value;
+        let fibSeries = [0, 1];
+        for (let i = 2; i <= num; i++) {
+            fibSeries.push(fibSeries[i-1] + fibSeries[i-2]);
+        }
+        document.getElementById('result').innerText = `Fibonacci series up to ${num}: ${fibSeries.join(', ')}`;
+    }
+
+    // Prime function
+    function calculatePrime() {
+        const num = document.getElementById('num').value;
+        let primes = [];
+        for (let i = 2; i <= num; i++) {
+            if (isPrime(i)) primes.push(i);
+        }
+        document.getElementById('result').innerText = `Prime numbers up to ${num}: ${primes.join(', ')}`;
+    }
+
+    // Prime check helper function
+    function isPrime(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) return false;
+        }
+        return true;
+    }
+
+    // Palindrome function
+    function checkPalindrome() {
+        const num = document.getElementById('num').value;
+        const str = num.toString();
+        const reversed = str.split('').reverse().join('');
+        if (str === reversed) {
+            document.getElementById('result').innerText = `${num} is a Palindrome`;
+        } else {
+            document.getElementById('result').innerText = `${num} is not a Palindrome`;
+        }
+    }
+</script>
+
+</body>
+</html>

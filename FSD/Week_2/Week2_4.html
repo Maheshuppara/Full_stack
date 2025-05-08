@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        /* Universal Selector: Apply box-sizing globally */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            background-color: #ff6347;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Portfolio Item Hover Effect */
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            color: #777;
+        }
+
+        /* Form Section */
+        form {
+            padding: 30px;
+            background-color: #333;
+            color: white;
+        }
+
+        form input[type="text"], form input[type="email"], form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        form input[type="submit"] {
+            background-color: #ff6347;
+            border: none;
+            padding: 12px 20px;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #ff4500;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        /* Pseudo-elements and pseudo-classes */
+        h2::before {
+            content: "→ ";
+            color: #ff6347;
+            font-size: 24px;
+        }
+
+        /* Pseudo-class for first letter */
+        p::first-letter {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        /* Combinator Selectors */
+        .content p + p {
+            margin-top: 20px;
+        }
+
+        .content p ~ p {
+            color: #888;
+        }
+
+        /* Attribute Selectors */
+        form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus {
+            border-color: #ff6347;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="portfolio-item">
+            <h3>Project 1</h3>
+            <p>A brief description of Project 1, highlighting the skills and tools used to build it.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 2</h3>
+            <p>A brief description of Project 2, showcasing creative and technical expertise.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 3</h3>
+            <p>A brief description of Project 3, demonstrating advanced problem-solving skills.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="content">
+        <form action="#">
+            <h2>Contact Me</h2>
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

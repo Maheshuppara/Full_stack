@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ways to Display Output</title>
+</head>
+<body>
+    <h1>JavaScript Output Methods</h1>
+    
+    <button onclick="displayInnerHTML()">Inner HTML</button>
+    <button onclick="displayAlert()">Alert Box</button>
+    <button onclick="displayDocumentWrite()">Document Write</button>
+    
+    <div id="output"></div>
+    
+    <script>
+        // Inner HTML method
+        function displayInnerHTML() {
+            document.getElementById("output").innerHTML = "Output displayed using Inner HTML!";
+        }
+
+        // Alert box method
+        function displayAlert() {
+            alert("Output displayed using Alert Box!");
+        }
+
+         // Document Write method
+        function displayDocumentWrite() {
+            document.write("Output displayed using Document Write!");
+        }
+    </script>
+</body>
+</html>

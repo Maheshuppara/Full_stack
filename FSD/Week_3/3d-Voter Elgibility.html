@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Eligibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 50%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th, td {
+            padding: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Voter Eligibility Check</h1>
+    <button onclick="getVoterDetails()">Check Voter Eligibility</button>
+    <div id="voterInfo" style="display: none;">
+        <h2>Voter Information</h2>
+        <table id="voterTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Eligibility to Vote</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function getVoterDetails() {
+            let name = prompt("Please enter your name:");
+            let age = prompt("Please enter your age:");
+            if (name && age && !isNaN(age)) {
+                let eligibility = (parseInt(age) >= 18) ? "Eligible to Vote" : "Not Eligible to Vote";
+                let table = document.getElementById("voterTable");
+                let newRow = table.insertRow(table.rows.length);
+                newRow.insertCell(0).innerText = name;
+                newRow.insertCell(1).innerText = age;
+                newRow.insertCell(2).innerText = eligibility;
+                document.getElementById("voterInfo").style.display = "block";
+            } else {
+                alert("Invalid input. Please make sure you enter a valid name and age.");
+            }
+        }
+    </script>
+</body>
+</html>

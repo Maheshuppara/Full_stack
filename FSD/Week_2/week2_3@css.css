@@ -1,0 +1,43 @@
+/* External CSS for consistent company branding across multiple pages */
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #e8e8e8;
+    color: #444;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #2a3d66;
+}
+
+.content {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.company-btn {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.company-btn:hover {
+    background-color: #142a47;
+}

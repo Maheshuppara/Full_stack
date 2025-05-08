@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Different Ways to Take Input</title>
+</head>
+<body>
+    <h1>JavaScript Input Methods</h1>
+    
+    <!-- HTML Form Input -->
+    <div>
+        <label for="textInput">Enter your name:</label>
+        <input type="text" id="textInput">
+        <button onclick="getInputFromForm()">Submit</button>
+    </div>
+
+    <br/>
+
+    <!-- Button to trigger a Prompt -->
+    <button onclick="getInputFromPrompt()">Take Input via Prompt</button>
+
+    <br/><br/>
+
+    <!-- Real-time Input with Event Listener -->
+    <div>
+        <label for="realTimeInput">Type something:</label>
+        <input type="text" id="realTimeInput">
+        <p id="realTimeOutput"></p>
+    </div>
+
+    <script>
+        // Method 1: Getting input from HTML form field
+        function getInputFromForm() {
+            const input = document.getElementById("textInput").value;
+            alert("You entered: " + input);
+        }
+
+        // Method 2: Getting input using prompt()
+        function getInputFromPrompt() {
+            const userInput = prompt("Please enter something:");
+            alert("You entered: " + userInput);
+        }
+
+        // Method 3: Real-time input handling with Event Listener
+        const realTimeInput = document.getElementById("realTimeInput");
+        realTimeInput.addEventListener("input", () => {
+            document.getElementById("realTimeOutput").innerHTML = "You typed: " + realTimeInput.value;
+        });
+    </script>
+</body>
+</html>

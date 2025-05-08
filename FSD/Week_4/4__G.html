@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Functions</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { max-width: 400px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        input, button { width: calc(50% - 15px); padding: 10px; margin: 5px; font-size: 16px; display: inline-block; }
+        .input-container { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .button-container { display: flex; flex-wrap: wrap; justify-content: space-around; margin-bottom: 15px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; box-sizing: border-box; }
+        button:hover { background-color: #45a049; }
+        .result-container { margin-top: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 4px; background-color: #f9f9f9; }
+        .result-item { font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Number Functions</h2>
+    <div class="input-container">
+        <label for="num" style="width: auto; margin-right: 10px;">Enter a number:</label>
+        <input type="number" id="num" placeholder="Enter a number" style="flex-grow: 1;">
+    </div>
+    <div class="button-container">
+        <button onclick="showFactorial()">Factorial</button>
+        <button onclick="showFibonacci()">Fibonacci</button>
+        <button onclick="showPrime()">Prime Numbers</button>
+        <button onclick="showPalindrome()">Palindrome</button>
+    </div>
+    <div class="result-container">
+        <div id="factorialResult" class="result-item"></div>
+        <div id="fibonacciResult" class="result-item"></div>
+        <div id="primeResult" class="result-item"></div>
+        <div id="palindromeResult" class="result-item"></div>
+    </div>
+</div>
+
+<script>
+    function getNumber() {
+        return document.getElementById('num').value;
+    }
+
+    function showFactorial() {
+        const num = parseInt(getNumber());
+        if (isNaN(num) || num < 0) {
+            document.getElementById('factorialResult').innerText = 'Factorial: Please enter a non-negative number.';
+            return;
+        }
+        let factorial = 1;
+        for (let i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        document.getElementById('factorialResult').innerText = `Factorial: ${factorial}`;
+    }
+
+    function showFibonacci() {
+        const num = parseInt(getNumber());
+        if (isNaN(num) || num < 1) {
+            document.getElementById('fibonacciResult').innerText = 'Fibonacci: Please enter a positive number.';
+            return;
+        }
+        let fibSeries = [0, 1];
+        while (fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2] <= num) {
+            fibSeries.push(fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2]);
+        }
+        document.getElementById('fibonacciResult').innerText = `Fibonacci: ${fibSeries.join(', ')}`;
+    }
+
+    function isPrime(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) return false;
+        }
+        return true;
+    }
+
+    function showPrime() {
+        const num = parseInt(getNumber());
+        if (isNaN(num) || num < 2) {
+            document.getElementById('primeResult').innerText = 'Prime Numbers: Please enter a number greater than or equal to 2.';
+            return;
+        }
+        let primes = [];
+        for (let i = 2; i <= num; i++) {
+            if (isPrime(i)) primes.push(i);
+        }
+        document.getElementById('primeResult').innerText = `Prime Numbers: ${primes.join(', ')}`;
+    }
+
+    function showPalindrome() {
+        const num = getNumber();
+        if (isNaN(parseInt(num))) {
+            document.getElementById('palindromeResult').innerText = 'Palindrome: Please enter a number.';
+            return;
+        }
+        const str = num.toString();
+        const reversed = str.split('').reverse().join('');
+        document.getElementById('palindromeResult').innerText = `Palindrome: ${str === reversed ? 'Yes' : 'No'}`;
+    }
+</script>
+
+</body>
+</html>
